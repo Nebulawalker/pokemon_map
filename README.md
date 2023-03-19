@@ -23,6 +23,9 @@
 ```sh
 pip install -r requirements.txt
 ```
+### *Примечание
+В зависимости от используемой версии Python нужно исправить версию Pillow в requirements.txt.
+Таблица совместимости по ссылке: [Документация Pillow](https://pillow.readthedocs.io/en/latest/installation.html)
 
 Запустите разработческий сервер
 
