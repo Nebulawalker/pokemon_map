@@ -54,7 +54,7 @@ def show_all_pokemons(request):
         pokemons_on_page.append({
             'pokemon_id': pokemon.pk,
             'img_url': image_url,
-            'title_ru': pokemon.title,
+            'title_ru': pokemon.title_ru,
         })
 
     return render(request, 'mainpage.html', context={
@@ -76,7 +76,7 @@ def show_pokemon(request, pokemon_id):
     else:
         image_url = DEFAULT_IMAGE_URL
     pokemon = {
-        'title_ru': requested_pokemon.title,
+        'title_ru': requested_pokemon.title_ru,
         'img_url': image_url,
         'description': requested_pokemon.description,
         'title_en': requested_pokemon.title_en,
@@ -92,7 +92,7 @@ def show_pokemon(request, pokemon_id):
                 image_url = DEFAULT_IMAGE_URL
             pokemon['next_evolution'] = {
                 "pokemon_id": next_evolution.id,
-                "title_ru": next_evolution.title,
+                "title_ru": next_evolution.title_ru,
                 "img_url": image_url,
 
             }    
@@ -104,7 +104,7 @@ def show_pokemon(request, pokemon_id):
             image_url = DEFAULT_IMAGE_URL
         pokemon['previous_evolution'] = {
             "pokemon_id": previous_evolution.id,
-            "title_ru": previous_evolution.title,
+            "title_ru": previous_evolution.title_ru,
             "img_url": image_url,
         }    
 
