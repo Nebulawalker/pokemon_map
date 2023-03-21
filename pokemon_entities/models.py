@@ -7,6 +7,7 @@ class Pokemon(models.Model):
     title_jp = models.CharField(max_length=200, null=True, blank=True)
     image = models.ImageField(blank=True, null=True)
     description = models.TextField(default='Описание в разработке')
+    previous_evolution = models.ForeignKey("self", on_delete=models.SET_NULL, related_name="next_evolution", null=True, blank=True)
 
     def __str__(self):
         return self.title
@@ -22,3 +23,6 @@ class PokemonEntity(models.Model):
     strength = models.IntegerField(default=0)
     defense = models.IntegerField(default=0)
     stamina =models.IntegerField(default=0)
+
+    def __str__(self):
+        return f'{self.pokemon.title} {self.level} lvl.'
