@@ -59,11 +59,11 @@ class PokemonEntity(models.Model):
         blank=True,
         verbose_name='Дата, время исчезновения'
     )
-    level = models.IntegerField(default=0, verbose_name='Уровень покемона')
-    health = models.IntegerField(default=0, verbose_name='Здоровье покемона')
-    strength = models.IntegerField(default=0, verbose_name='Сила покемона')
-    defense = models.IntegerField(default=0, verbose_name='Защита покемона')
-    stamina = models.IntegerField(default=0, verbose_name='Выносливость покемона')
+    level = models.IntegerField(null=True, blank=True, verbose_name='Уровень покемона')
+    health = models.IntegerField(null=True, blank=True, verbose_name='Здоровье покемона')
+    strength = models.IntegerField(null=True, blank=True, verbose_name='Сила покемона')
+    defense = models.IntegerField(null=True, blank=True, verbose_name='Защита покемона')
+    stamina = models.IntegerField(null=True, blank=True, verbose_name='Выносливость покемона')
 
     def __str__(self):
         return f'{self.pokemon.title_ru} {self.level} lvl.'
