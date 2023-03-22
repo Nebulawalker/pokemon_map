@@ -86,18 +86,18 @@ def show_pokemon(request, pokemon_id):
         'title_jp': requested_pokemon.title_jp
     }
 
-    if requested_pokemon.next_evolution.count():
-        next_evolution = requested_pokemon.next_evolution.get()
-        if next_evolution:
-            if next_evolution.image:
+    if requested_pokemon.next_evolutions.count():
+        next_evolutions = requested_pokemon.next_evolutions.get()
+        if next_evolutions:
+            if next_evolutions.image:
                 image_url = request.build_absolute_uri(
-                    next_evolution.image.url
+                    next_evolutions.image.url
                 )
             else:
                 image_url = DEFAULT_IMAGE_URL
             pokemon['next_evolution'] = {
-                "pokemon_id": next_evolution.id,
-                "title_ru": next_evolution.title_ru,
+                "pokemon_id": next_evolutions.id,
+                "title_ru": next_evolutions.title_ru,
                 "img_url": image_url,
 
             }
