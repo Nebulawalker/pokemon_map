@@ -29,8 +29,7 @@ def add_pokemon(folium_map, lat, lon, image_url=DEFAULT_IMAGE_URL):
 def get_image_url(request, image):
     if image:
        return request.build_absolute_uri(image.url)
-    else:
-        return DEFAULT_IMAGE_URL
+    return DEFAULT_IMAGE_URL
 
 
 def show_all_pokemons(request):
@@ -68,10 +67,7 @@ def show_pokemon(request, pokemon_id):
     local_time = localtime()
     requested_pokemon = get_object_or_404(Pokemon, pk=pokemon_id)
 
-    if requested_pokemon.image:
-        image_url = request.build_absolute_uri(requested_pokemon.image.url)
-    else:
-        image_url =get_image_url(request, requested_pokemon.image)
+    image_url =get_image_url(request, requested_pokemon.image)
     pokemon = {
         'title_ru': requested_pokemon.title_ru,
         'img_url': image_url,
